@@ -1,0 +1,17 @@
+// main: ../main.scss
+
+
+//--------------Base style---------------//
+* {
+	box-sizing: border-box;
+}
+body {
+	font-size: $base__font-size;
+	font-family: $font-family--primary;
+	// line-height: ($base__line/$base__font-size);
+}
+
+.wrapper {
+	margin-left: 90px;
+	padding: 0 20px;
+}

@@ -1,0 +1,78 @@
+// main: ../main.scss
+
+// ==========================================================================
+// Global Config
+// ==========================================================================
+
+// Descriptive Base Colors
+
+$white : #fff;
+$black : #0b0b0b;
+$grey  : #797e83;
+
+$ship_cove   : #7477bf;
+$waikawa-gray: #4d4c72;
+$deluge      : #755AAF;
+
+
+$active      : #61ED66;
+
+// Text
+
+$base__font-size : 16px;
+$base__line      : 24px;
+$letter-space    : 1px;
+
+// Color Palette Modifiers
+
+$palettes: (
+  grey: (
+    xx-light : lighten($grey, 46%),
+    x-light  : lighten($grey, 35%),
+    light    : lighten($grey, 12%),
+    base     : $grey,
+    dark     : darken($grey, 8%),
+    x-dark   : darken($grey, 16%)
+  ),
+	black: (
+		light    : lighten($black, 10%),
+		base     : $black,
+		dark     : darken($black, 10%)
+	)
+);
+
+// Help
+
+$indent-left : 20px;
+
+// Grid Theme Colors
+
+
+// Font Weights
+
+$font-weight--thin       : 100;
+$font-weight--light      : 300;
+$font-weight--medium     : 400;
+$font-weight--bold       : 700;
+$font-weight--ultra-bold : 900;
+
+// Font Stacks
+
+$font-url--google        : 'https://fonts.googleapis.com/css?family=Libre+Franklin:100,300,400,700,900';
+$font-family--primary    : 'Libre Franklin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-family--secondary  : 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+
+
+// Grid
+
+$g-col-width    : 100px;
+$g-gutter-width : 20px;
+$g-col-count    : 12;
+$g-cont-max-w   : 1400px;
+
+// Breakpoints
+
+$brkpoint-sm    : 1px;
+$brkpoint-md    : 768px;
+$brkpoint-lg    : 1100px;

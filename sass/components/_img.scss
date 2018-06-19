@@ -1,0 +1,43 @@
+// main: ../main.scss
+
+
+//--------------Svg-bell--------------//
+
+.svg-bell {
+	width:20px;
+	vertical-align: middle;
+	fill: $white;
+}
+.bell-indicator {
+	width: 4px;
+	height: 4px;
+	background: $active;
+	border-radius: 50%;
+	position: absolute;
+	top: em(2px);
+	left: 17px;
+}
+
+.svg-navigation {
+	width: em(35px);
+	fill: getColor(grey);
+	margin: auto;
+	&:hover {
+		fill: $white;
+	}
+}
+
+.svg-social{
+	fill: $white;
+	height: 22px;
+}
+.img_users-photo {
+	border-radius: 50%;
+	height: 40px;
+	cursor: pointer;
+}
+
+.img-arraw{
+	height: 20px;
+	cursor: pointer;
+}

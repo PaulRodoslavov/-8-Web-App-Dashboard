@@ -1,0 +1,19 @@
+// main: ../main.scss
+
+
+//--------------Base style---------------//
+@import url('https://fonts.googleapis.com/css?family=Tajawal');
+
+
+* {
+	box-sizing: border-box;
+}
+body {
+	font-size: $base__font-size;
+	font-family: $font-family--primary;
+	line-height: ($base__line/$base__font-size);
+}
+
+.bold {
+	font-weight: $font-weight--bold;
+}

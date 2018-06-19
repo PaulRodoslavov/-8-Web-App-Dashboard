@@ -1,0 +1,251 @@
+// main: ../main.scss
+
+//--------------Header--------------//
+.head {
+  position: relative;
+  height: 50px;
+  font-family: 'Tajawal', sans-serif;
+  background: $ship_cove;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4%;
+  z-index: 100;
+  &__logo,
+  &__user {
+    height: 24px;
+  }
+  &__logo {
+    color: $white;
+    font-size: 19px;
+  }
+  &__user {
+    display: flex;
+    &--name {
+      display: flex;
+      & span {
+        color: $white;
+      }
+    }
+    &--bell {
+      // display: table;
+      position: relative;
+      padding-right: 15px;
+      border-right: 1px solid $waikawa-gray;
+      margin-right: 30px;
+      cursor: pointer;
+    }
+  }
+}
+.icon-user{
+  width: 24px;
+  margin-right: 5px;
+  & img {
+    display: block;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+//--------------Navigation Bar--------------//
+
+.navigation{
+  width: 90px;
+  height: 100%;
+  background: $waikawa-gray;
+  position: fixed;
+  top:0;
+  left: 0;
+  text-align: center;
+  &__dashbord {
+    margin-top: 90px;
+  }
+  &__dashbord,
+  &__membr,
+  &__visits,
+  &__settings{
+    @extend %svg-navigation;
+  }
+}
+
+//--------------Search Head--------------//
+
+.dashboard-head {
+  display: flex;
+  align-items: center;
+  margin-left: 90px;
+    &__title {
+    padding: 0 20px;
+    font: em(20px) 'Tajawal', sans-serif;
+  }
+  &__search {
+    border-left: 1px solid getColor(grey, x-light);
+    border-bottom: 1px solid getColor(grey, x-light);
+    background: getColor(grey, xx-light);
+    padding: 10px 20px 10px 0;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    position: relative;
+    & input {
+      margin-left: auto;
+      height: 30px;
+      width: 43%;
+      min-width: 145px;
+      border: 1px solid getColor(grey, x-light);
+      border-radius: 3px;
+      padding-left: 10px;
+      &::placeholder {
+        color: getColor(grey, x-light);
+      }
+    }
+    &--button {
+    position: absolute;
+    height: 18px;
+    top: 15px;
+    right: 27px;
+    & img {
+      height: 100%;
+    }
+    }
+  }
+}
+
+//--------------Alert--------------//
+ .alert {
+   margin-top: 20px;
+   height: 40px;
+   background: $ship_cove;
+   border-radius: 3px;
+   display: flex;
+   align-items: center;
+   padding-left: 20px;
+   color: $white;
+   position: relative;
+   & span {
+     margin-right: 5px;
+   }
+   & img {
+     width: 10px;
+     height: 10px;
+     display: block;
+     position: absolute;
+     top: 14px;
+     right: 9px;
+     cursor: pointer;
+   }
+ }
+
+
+//--------------Social Stats--------------//
+
+.social {
+  display: flex;
+  justify-content: space-between;
+}
+.nets {
+  display: flex;
+  align-items: flex-end;
+  width: 30%;
+  background: getColor(grey, xx-light);
+  padding: 10px;
+  border: 1px solid getColor(grey, x-light);
+  border-radius: 3px;
+  &__logo {
+    height:45px;
+    width: 45px;
+    border-radius: 50%;
+    background: $ship_cove;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__info {
+    margin-left: 10px;
+    position: relative;
+
+    &--name{
+      font-size: em(11px);
+      color: $ship_cove;
+      letter-spacing: 1px;
+      font-weight: $font-weight--bold;
+      position: absolute;
+      top: -46px;
+      left: 0;
+    }
+    &--num {
+      font-size: em(30px);
+      color: getColor(grey);
+      padding: 0;
+      position: absolute;
+      bottom: -7px;
+      left: 0;
+    }
+  }
+}
+
+//--------------Users Activity--------------//
+.users-activity{
+  font-family:"Tajawal",sans-serif;
+  margin-left: 90px;
+  margin-top:30px;
+  border-top: 1px solid getColor(grey, x-light);
+  border-bottom: 1px solid getColor(grey, x-light);
+  display: flex;
+  &__block{
+    padding: 15px $indent-left 5px;
+    &--user {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 7px 0;
+      font-size:em(13px);
+      letter-spacing: .3px;
+
+    }
+    &--title{
+      font-size:em(15px);
+    }
+  }
+}
+
+
+.line-height {
+  line-height: 1.1;
+  margin-left: 10px;
+}
+.email {
+  color: $ship_cove;
+  cursor: pointer;
+}
+.user1,
+.user2,
+.user3 {
+  border-bottom: 1px solid getColor(grey, x-light);
+}
+
+.block1,
+.block2 {
+  @extend %bloksUsers;
+}
+.block1 {
+  border-right: 1px solid getColor(grey, x-light);
+}
+
+.inline{
+  display: flex;
+  align-items: center;
+}
+
+
+
+.YPAAA{
+  border-radius: 50%;
+}
+
+footer {
+  margin-top: 700px;
+  height: 50px;
+  background: $ship_cove;
+}
