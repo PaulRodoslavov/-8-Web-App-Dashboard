@@ -10,5 +10,17 @@
 }
 
 %bloksUsers {
-	flex-basis: 50%;
+	width: 50%;
+}
+
+%inputMessage {
+	border: 1px solid getColor(grey, x-light);
+	border-radius: 3px;
+	background: getColor(grey, xx-light);
+	padding: 10px;
+	&::placeholder {
+		color: getColor(grey, x-light);
+		font-style: italic;
+		font-family: arial;
+	}
 }

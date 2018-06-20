@@ -140,6 +140,11 @@
 
 //--------------Social Stats--------------//
 
+.social-head{
+  font: em(15px) "Tajawal",sans-serif;
+  margin: 10px 0;
+
+}
 .social {
   display: flex;
   justify-content: space-between;
@@ -209,8 +214,6 @@
     }
   }
 }
-
-
 .line-height {
   line-height: 1.1;
   margin-left: 10px;
@@ -232,17 +235,120 @@
 .block1 {
   border-right: 1px solid getColor(grey, x-light);
 }
-
 .inline{
   display: flex;
   align-items: center;
 }
 
+//--------------Massage Footer--------------//
 
-
-.YPAAA{
-  border-radius: 50%;
+.massage-settings{
+  margin-left: 90px;
+  display: flex;
+  border-top: 1px solid getColor(grey, x-light);
+  margin-top: 35px;
 }
+.settings,
+.messageUser{
+  @extend %bloksUsers;
+  padding: 15px $indent-left;
+}
+.messageUser{
+  border-right: 1px solid getColor(grey, x-light);
+  &__search,
+  &__message,
+  &__button {
+    width: 100%;
+  }
+  &__search{
+    margin-top:20px;
+    height: 35px;
+    @extend %inputMessage;
+
+  }
+  &__message {
+    margin-top: 25px;
+    height: 100px;
+    @extend %inputMessage;
+  }
+  &__button {
+    margin-top:10px;
+    border: none;
+    border-radius: 4px;
+    height: 35px;
+    background: $ship_cove;
+    color: $white;
+    cursor: pointer;
+  }
+}
+
+//--------------Settings Footer--------------//
+
+.settings {
+  &__sendEmail {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    align-items: center;
+  }
+  &__timezone {
+    font: em(15px) $font-family--primary;
+    width: 100%;
+    @extend %inputMessage;
+  }
+  &__saveCancel{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    &--cancel,
+    &--save{
+      width: 40%;
+      height: 35px;
+      cursor: pointer;
+      border: none;
+      border-radius: 4px;
+      color: $white;
+    }
+    &--save {
+      background: $ship_cove;
+    }
+    &--cancel {
+      background: #ccc;
+    }
+  }
+}
+
+.wrpper-settings__timezone{
+  margin-top: 20px;
+  position: relative;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 footer {
   margin-top: 700px;
