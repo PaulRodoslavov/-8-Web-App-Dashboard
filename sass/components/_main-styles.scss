@@ -28,7 +28,6 @@
       }
     }
     &--bell {
-      // display: table;
       position: relative;
       padding-right: 15px;
       border-right: 1px solid $waikawa-gray;
@@ -127,16 +126,13 @@
    & span {
      margin-right: 5px;
    }
-
  }
-
 
 //--------------Social Stats--------------//
 
 .social-head{
   font: em(15px) "Tajawal",sans-serif;
   margin: 10px 0;
-
 }
 .social {
   display: flex;
@@ -184,6 +180,7 @@
 }
 
 //--------------Users Activity--------------//
+
 .users-activity{
   font-family:"Tajawal",sans-serif;
   margin-top:30px;
@@ -199,7 +196,6 @@
       padding: 7px 0;
       font-size:em(13px);
       letter-spacing: .3px;
-
     }
     &--title{
       font-size:em(15px);
@@ -245,7 +241,6 @@
   padding: 15px $indent-left;
   display: flex;
   flex-direction: column;
-  height: 290px;
 }
 .flex-grow {
   flex-grow: 1;
@@ -301,6 +296,7 @@
     cursor: pointer;
   }
 }
+
 //--------------Settings Footer--------------//
 
 .settings {
@@ -341,15 +337,15 @@
   }
 }
 
-.wrpper-settings__timezone{
+.wrapper-settings__timezone{
   margin-top: 20px;
   position: relative;
-
 }
+
 footer {
-height: 50px;
-background: $ship_cove;
-margin-top: 300px;
+  height: 50px;
+  background: $ship_cove;
+  margin-top: 200px;
 }
 
 .navigation-active{
@@ -358,7 +354,6 @@ margin-top: 300px;
 }
 
 //--------------Main Traffic Chart--------------//
-
 
 .traffic{
   position: relative;
@@ -404,14 +399,42 @@ margin-top: 300px;
 .charts-tittle {
   margin-left: 30px;
 }
-
 .pie-barChasts{
   margin: 20px 0;
 }
 
+//--------------PopUp--------------//
 
+.popUp {
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.4);
+  display:none;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
 
+  &__description {
+    width: 500px;
+    background: $white;
+    border-radius: 5px;
+    padding: 10px;
+    position: relative;
+    &--cross {
+      width: 35px;
+      padding:10px;
+      cursor: pointer;
+      position: absolute;
+      top: -6px;
+      right: -4px;
+    }
+  }
+}
 
+//--------------Media Queries for mobile--------------//
 
 @media (max-width: 750px) {
   .navigation{
@@ -420,7 +443,6 @@ margin-top: 300px;
   .container {
     padding: 0;
   }
-
   .massage-settings,
   .users-activity,
   .daily-users {
@@ -440,9 +462,7 @@ margin-top: 300px;
     width: 100%;
     margin-top: 10px;
   }
-
   .traffic{
     height: 60vh;
   }
-
 }

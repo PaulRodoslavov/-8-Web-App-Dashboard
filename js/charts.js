@@ -1,4 +1,4 @@
-// Line chart variables and layout //
+// -----------------------Data for charts----------------------- //
 
 let traffic_labelsTime = ["0:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"];
 let traffic_dataTime= ['100', '200', '300', '400', '450', '500', '750', '700', '860', '1000', '1100', '1000', '1500', '1700', '1000', '750', '1200', '1000', '900', "1900", '1200', '800', '600', '550', '400', '1500', '2000', '1800', '600', '1300', '2150', '900'];
@@ -13,7 +13,7 @@ let traffic_labelsWeek = ["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "2
 let traffic_dataWeek = ['100', '200', '300', '400', '450', '500', '750', '700', '860', '1000', '1100', '1000', '1500'];
 
 
-// -------------------------------- //
+// ----------------------Chart Traffic----------------------- //
 
 let ctx = document.getElementById("myChart").getContext('2d');
 let myChart = new Chart(ctx, {
@@ -51,16 +51,9 @@ let myChart = new Chart(ctx, {
             offsetGridLines: true
           }
         }],
-        // xAxes: [{
-        //   gridLines: {
-        //     offsetGridLines: true
-        //   }
-        // }]
       }
     }
   });
-
-
   function addData(chart, label, data) {
       chart.data.labels = label;
       chart.data.datasets.forEach((dataset) => {
@@ -69,18 +62,17 @@ let myChart = new Chart(ctx, {
       chart.update();
   };
 
-function addEvent (elem, labels, data){
-  elem.on('click', () => {
-      addData(myChart, labels, data);
+  function addEvent (elem, labels, data){ //function for changing active chart //
+    elem.on('click', () => {
+        addData(myChart, labels, data);
   });
 };
-
 addEvent( $('#hourly'), traffic_labelsTime, traffic_dataTime);
 addEvent( $('#daily'), traffic_labelsDays, traffic_dataDays);
 addEvent( $('#mounthly'), traffic_labelsMounth, traffic_dataMounth);
 addEvent( $('#weekly'), traffic_labelsWeek, traffic_dataWeek);
 
-// -------------------------------- //
+  // ----------------------BarChart----------------------- //
 
 new Chart(document.getElementById("barChart"), {
     responsive: true,
@@ -106,9 +98,7 @@ new Chart(document.getElementById("barChart"), {
   }
 });
 
-
-//-----------------------------------//
-
+// ----------------------PieChart----------------------- //
 
 new Chart(document.getElementById("pieChart"), {
     responsive: true,

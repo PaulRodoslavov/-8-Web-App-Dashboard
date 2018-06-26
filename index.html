@@ -18,7 +18,7 @@
       </h1>
 
       <div class="head__user">
-        <div class="head__user--bell">
+        <div class="head__user--bell" id="head__user--bell">
           <svg class="svg-bell" enable-background="new 0 0 32 32" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
         		<path d="m24 18v-8c0-5.5-4.5-10-10-10s-10 4.5-10 10v8l-4 8h9.1c0.5 2.3 2.5 4 4.9 4s4.4-1.7 4.9-4h9.1l-4-8zm-10 10c-1.3 0-2.4-0.8-2.8-2h5.6c-0.4 1.2-1.5 2-2.8 2zm-11-4l3-6v-8c0-4.4 3.6-8 8-8s8 3.6 8 8v8l3 6h-22z"/>
           </svg>
@@ -42,7 +42,7 @@
         </svg>
       </a>
 
-      <a href="#" class="navigation__membr" id="navigation__membr">
+      <a href="#daily-users" class="navigation__membr" id="navigation__membr">
         <?xml version="1.0" encoding="UTF-8"?>
         <svg class="svg-navigation" enable-background="new 0 0 32 32" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
         	<path d="m18 16.4c1.3-1.7 2-3.9 2-6.4 0-5.5-4-10-9-10s-9 4.5-9 10c0 2.4 0.8 4.6 2 6.4-2.3 0.8-4 3-4 5.6v4c0 3.3 2.7 6 6 6h10c3.3 0 6-2.7 6-6v-4c0-2.6-1.7-4.8-4-5.6zm-14-6.4c0-4.4 3.1-8 7-8s7 3.6 7 8-3.1 8-7 8-7-3.6-7-8zm16 15.5c0 2.5-2.2 4.5-4.9 4.5h-8.2c-2.7 0-4.9-2-4.9-4.5v-3c0-2.1 1.6-3.9 3.8-4.4 1.4 1.2 3.2 1.9 5.2 1.9s3.8-0.7 5.2-1.9c2.2 0.5 3.8 2.2 3.8 4.4v3zm3-17.5h8c0.6 0 1-0.4 1-1s-0.4-1-1-1h-8c-0.6 0-1 0.4-1 1s0.4 1 1 1zm8 16h-6c-0.6 0-1 0.4-1 1s0.4 1 1 1h6c0.6 0 1-0.4 1-1s-0.4-1-1-1zm0-12h-8c-0.6 0-1 0.4-1 1s0.4 1 1 1h8c0.6 0 1-0.4 1-1s-0.4-1-1-1zm0 6h-6c-0.6 0-1 0.4-1 1s0.4 1 1 1h6c0.6 0 1-0.4 1-1s-0.4-1-1-1z"/>
@@ -104,7 +104,7 @@
 
 
 
-  <div class="wrapper daily-users">
+  <div class="wrapper daily-users" id="daily-users">
     <div class="block1">
       <div class="blocks-margin">DAILY TRAFFIC</div>
       <canvas class="pie-barChasts" id="barChart"></canvas>
@@ -336,7 +336,7 @@
           <span class='slider-inner'></span>
         </label>
       </div>
-      <div class="wrpper-settings__timezone">
+      <div class="wrapper-settings__timezone">
         <select class="settings__timezone" id="timezone">
           <option disabled selected='selected'>Select Timezone</option>
           <option value="UTC-11">Samoa Standard Time</option>
@@ -359,7 +359,16 @@
     </form>
   </div>
 </section>
-
+  <div class="popUp" id="popUp">
+    <div class="popUp__description" >
+      <img src="icons/cross1.png" id="popUp-cross"alt="cross1" class="popUp__description--cross">
+      <h1>Features of this website:</h1>
+      <div>1. Changing types of charts</div>
+      <div>2. Loading random info of users using AJAX</div>
+      <div>3. Saving and Canceling Settings after refreshing site</div>
+      <div>4. Autocomplete in field Search for User</div>
+    </div>
+  </div>
 
   <footer></footer>
 </div>
