@@ -243,6 +243,12 @@
 .messageUser{
   @extend %bloksUsers;
   padding: 15px $indent-left;
+  display: flex;
+  flex-direction: column;
+  height: 290px;
+}
+.flex-grow {
+  flex-grow: 1;
 }
 .messageUser{
   border-right: 1px solid getColor(grey, x-light);
@@ -255,7 +261,6 @@
     margin-top:20px;
     height: 35px;
     @extend %inputMessage;
-
   }
   &__message {
     margin-top: 25px;
@@ -271,8 +276,31 @@
     color: $white;
     cursor: pointer;
   }
+  & form {
+    position: relative;
+  }
 }
-
+.autocomplete-items {
+  position: absolute;
+  width: 100%;
+  background: $white;
+  top: 55px;
+  left: 0;
+  border-top: 1px solid getColor(grey, x-light);
+  border-right: 1px solid getColor(grey, x-light);
+  border-left: 1px solid getColor(grey, x-light);
+}
+.bold {
+  font-weight: $font-weight--bold;
+}
+.autocomplete-names {
+  padding: 5px 10px;
+  border-bottom: 1px solid getColor(grey, x-light);
+  &:hover {
+    background-color: getColor(grey, xx-light);
+    cursor: pointer;
+  }
+}
 //--------------Settings Footer--------------//
 
 .settings {
@@ -371,7 +399,7 @@ margin-top: 300px;
   margin: 20px 0;
 }
 .blocks-margin {
-  margin-top:20px;
+  margin-top: 20px;
 }
 .charts-tittle {
   margin-left: 30px;
@@ -389,11 +417,32 @@ margin-top: 300px;
   .navigation{
     display: none;
   }
+  .container {
+    padding: 0;
+  }
+
   .massage-settings,
-  .dashboard-head,
-  .wrapper,
-  .users-activity{
-    margin-left: 0;
+  .users-activity,
+  .daily-users {
+    display: block;
+  }
+  .block1,
+  .block2,
+  .settings,
+  .messageUser{
+    width: 100%;
+  }
+  .social {
+    flex-direction: column;
+    align-items: center;
+  }
+  .nets {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .traffic{
+    height: 40vh;
   }
 
 }

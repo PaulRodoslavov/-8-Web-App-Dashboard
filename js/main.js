@@ -47,15 +47,14 @@ $.ajax({
     $('#email3').html(authors[2].email);
     $('#email4').html(authors[3].email);
 
-let name1 = $('#name1').text(),
-    name2 = $('#name2').text(),
-    name3 = $('#name3').text(),
-    name4 = $('#name4').text(),
-    name5 = $('#name5').text(),
-    name6 = $('#name6').text(),
-    name7 = $('#name7').text(),
-    name8 = $('#name8').text();
-
+// let name1 = $('#name1'),
+//     name2 = $('#name2').text(),
+//     name3 = $('#name3').text(),
+//     name4 = $('#name4').text(),
+//     name5 = $('#name5').text(),
+//     name6 = $('#name6').text(),
+//     name7 = $('#name7').text(),
+//     name8 = $('#name8').text();
   }
 });
 
@@ -126,26 +125,60 @@ if (sessionStorage.getItem('timezoneCheckbox') != null){
   $('#timezone').find(":selected").text(sessionStorage.getItem('timezoneCheckbox'));
 }
 
-//------------------------------//
+//----------------------------------------------------------------//
 
 $('.settings__saveCancel--cancel').click(() => {
   sessionStorage.clear();
   // console.log(typeof(sessionStorage.getItem('timezoneCheckbox')));
 });
 
+//----------------------------------------------------------------//
 
+let name1 = $('#name1').text(),
+    name2 = $('#name2').text(),
+    name3 = $('#name3').text(),
+    name4 = $('#name4').text(),
+    name5 = $('#name5').text(),
+    name6 = $('#name6').text(),
+    name7 = $('#name7').text(),
+    name8 = $('#name8').text();
+let $container = $('<div class="autocompleteList"></div>')
+let arr = [name1, name2, name3, name4, name5, name6, name7, name8];
 
+function autocomplete(input, arr) {
+  let currentFocus;
+  input.keyup( (el) => {
+     let autocompleteItems, autocompleteInner, val = input.val();
+     closeAllLists();
+     if (!val) { return false;}
+     currentFocus = -1;
 
+     autocompleteItems = $("<div class='autocomplete-items' id='autocomplete-list'>");
+     $('.messageUser > form').append(autocompleteItems);
 
-
-// let arr = [name1, name2, name3, name4, name5, name6, name7, name8];
-
-
-$('#messageUser-search').keyup( () => {
-  let arr = ['paul', 'anna', 'adam', 'paulo', 'dima', 'dan', 'mala'];
-  for (let i = 0; i < arr.length; i++){
-
-    console.log(arr[i].substr(0, 3));
+     for (let i = 0; i < arr.length; i++) {
+       if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+         autocompleteInner = $('<div class="autocomplete-names"></div>');
+         autocompleteInner.html("<span class='bold'>" + arr[i].substr(0, val.length) + "</span>");
+         autocompleteInner.append(arr[i].substr(val.length));
+         autocompleteItems.append(autocompleteInner);
+          autocompleteItems.on('click', (e) => {
+            input.val(e.target.innerText);
+          });
+       }
+     }
+  });
+  function closeAllLists(el) {
+      let x = $(".autocomplete-items");
+      for (let i = 0; i < x.length; i++) {
+        if (el != x[i] && el != input) {
+        x[i].parentNode.removeChild(x[i]);
+      }
+    }
   }
+  $(document).on("click", (e) => {
+    closeAllLists(e.target);
+  });
+}
 
-});
+autocomplete($('#messageUser-search'), arr);
