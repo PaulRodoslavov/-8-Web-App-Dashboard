@@ -66,6 +66,8 @@
   &__visits,
   &__settings{
     @extend %svg-navigation;
+    border-left: 4px solid rgba(0,0,0,0);
+    transition: .5s;
   }
 }
 
@@ -74,7 +76,6 @@
 .dashboard-head {
   display: flex;
   align-items: center;
-  margin-left: 90px;
     &__title {
     padding: 0 20px;
     font: em(20px) 'Tajawal', sans-serif;
@@ -126,15 +127,7 @@
    & span {
      margin-right: 5px;
    }
-   & img {
-     width: 10px;
-     height: 10px;
-     display: block;
-     position: absolute;
-     top: 14px;
-     right: 9px;
-     cursor: pointer;
-   }
+
  }
 
 
@@ -156,7 +149,7 @@
   background: getColor(grey, xx-light);
   padding: 10px;
   border: 1px solid getColor(grey, x-light);
-  border-radius: 3px;
+  border-radius: 4px;
   &__logo {
     height:45px;
     width: 45px;
@@ -193,7 +186,6 @@
 //--------------Users Activity--------------//
 .users-activity{
   font-family:"Tajawal",sans-serif;
-  margin-left: 90px;
   margin-top:30px;
   border-top: 1px solid getColor(grey, x-light);
   border-bottom: 1px solid getColor(grey, x-light);
@@ -243,7 +235,6 @@
 //--------------Massage Footer--------------//
 
 .massage-settings{
-  margin-left: 90px;
   display: flex;
   border-top: 1px solid getColor(grey, x-light);
   margin-top: 35px;
@@ -291,6 +282,9 @@
     justify-content: space-between;
     margin-top: 25px;
     align-items: center;
+    &--label {
+      font-size: em(13px);
+    }
   }
   &__timezone {
     font: em(15px) $font-family--primary;
@@ -324,34 +318,82 @@
   position: relative;
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 footer {
-  margin-top: 700px;
-  height: 50px;
-  background: $ship_cove;
+height: 50px;
+background: $ship_cove;
+margin-top: 300px;
+}
+
+.navigation-active{
+  border-left: 4px solid green;
+  fill: $white;
+}
+
+//--------------Main Traffic Chart--------------//
+
+
+.traffic{
+  position: relative;
+  width: 60vw;
+  height: 60vh;
+}
+.headTraffic {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  margin-bottom: 25px;
+  &__nav {
+    display: flex;
+    &--items {
+      margin-left: 10px;
+      padding: 2px 10px;
+      cursor: pointer;
+      &:hover {
+        background: green;
+        border-radius:45%;
+        color: $white;
+      }
+    }
+  }
+}
+.active-nav-items {
+  background: green;
+  border-radius:45%;
+  color: $white;
+}
+
+//--------------Daily Chart Traffic--------------//
+
+.daily-users {
+  border-top: 1px solid getColor(grey, x-light);
+  border-bottom: 1px solid getColor(grey, x-light);
+  display: flex;
+  margin: 20px 0;
+}
+.blocks-margin {
+  margin-top:20px;
+}
+.charts-tittle {
+  margin-left: 30px;
+}
+
+.pie-barChasts{
+  margin: 20px 0;
+}
+
+
+
+
+
+@media (max-width: 750px) {
+  .navigation{
+    display: none;
+  }
+  .massage-settings,
+  .dashboard-head,
+  .wrapper,
+  .users-activity{
+    margin-left: 0;
+  }
+
 }

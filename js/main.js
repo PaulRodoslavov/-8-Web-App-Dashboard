@@ -14,9 +14,13 @@ let photos = document.getElementsByClassName('photos');
 const ul = document.getElementById('authors');
 const url = 'https://randomuser.me/api?results=8';
 
-fetch(url)
-  .then((resp) => resp.json())
-  .then(function(data){
+
+
+$.ajax({
+  url: 'https://randomuser.me/api?results=8',
+  async: false,
+  dataType: 'json',
+  success: function(data) {
     let authors = data.results;
     $('#photo1').attr('src', authors[0].picture.medium);
     $('#photo2').attr('src', authors[1].picture.medium);
@@ -43,9 +47,105 @@ fetch(url)
     $('#email3').html(authors[2].email);
     $('#email4').html(authors[3].email);
 
+let name1 = $('#name1').text(),
+    name2 = $('#name2').text(),
+    name3 = $('#name3').text(),
+    name4 = $('#name4').text(),
+    name5 = $('#name5').text(),
+    name6 = $('#name6').text(),
+    name7 = $('#name7').text(),
+    name8 = $('#name8').text();
 
-    console.log(authors[0].email);
+  }
+});
 
-
-
+  $('#cross').on('click', function(){
+    $('#alert').hide();
   });
+
+  window.onscroll = function() {
+	posLeft = (window.pageXOffset !== undefined) ? window.pageXOffset : (document.documentElement || document.body.parentNode || document.body).scrollLeft;
+	posTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+	// console.log('x=' + posLeft + '\ny=' + posTop);
+
+  if (posTop >= 0 && posTop <= 340){
+    $('#navigation__dashbord').addClass(' navigation-active');
+    } else {
+    $('#navigation__dashbord').removeClass(' navigation-active');
+  }
+  //
+  // if (posTop >= 670 && posTop <= 1086){
+  //   $('#navigation__membr').addClass(' navigation-active');
+  // } else {
+  //   $('#navigation__membr').removeClass(' navigation-active');
+  // }
+
+  if (posTop >= 670 && posTop <= 1086){
+    $('#navigation__visits').addClass(' navigation-active');
+  } else {
+    $('#navigation__visits').removeClass(' navigation-active');
+  }
+
+  if (posTop >= 1087 && posTop <= 1186){
+    $('#navigation__settings').addClass(' navigation-active');
+    } else {
+    $('#navigation__settings').removeClass(' navigation-active');
+  }
+}
+
+//------------------------------//
+
+$(".headTraffic__nav > .headTraffic__nav--items").click(function(){
+  $(".active-nav-items").removeClass("active-nav-items");
+  $(this).addClass(" active-nav-items");
+});
+
+//------------------------------//
+
+$('.settings__saveCancel--save').click(()=>{
+  let emailCheckbox = document.getElementById('email-checkbox').checked;
+  let profileCheckbox = document.getElementById('profile-checkbox').checked;
+  let timezoneCheckbox = $('#timezone').find(":selected").text()
+
+  sessionStorage.setItem('emailCheckbox', emailCheckbox);
+  sessionStorage.setItem('profileCheckbox', profileCheckbox);
+  sessionStorage.setItem('timezoneCheckbox', timezoneCheckbox);
+  console.log(sessionStorage.getItem('timezoneCheckbox'));
+})
+function setCheckbox($elem, id){
+  if (sessionStorage.getItem($elem) == "true"){
+    id.prop('checked', true);
+  } else {
+    id.prop('checked', false);
+  }
+};
+setCheckbox('emailCheckbox', $('#email-checkbox'));
+setCheckbox('profileCheckbox', $('#profile-checkbox'));
+
+if (sessionStorage.getItem('timezoneCheckbox') != null){
+  $('#timezone').find(":selected").text(sessionStorage.getItem('timezoneCheckbox'));
+}
+
+//------------------------------//
+
+$('.settings__saveCancel--cancel').click(() => {
+  sessionStorage.clear();
+  // console.log(typeof(sessionStorage.getItem('timezoneCheckbox')));
+});
+
+
+
+
+
+
+// let arr = [name1, name2, name3, name4, name5, name6, name7, name8];
+
+
+$('#messageUser-search').keyup( () => {
+  let arr = ['paul', 'anna', 'adam', 'paulo', 'dima', 'dan', 'mala'];
+  for (let i = 0; i < arr.length; i++){
+
+    console.log(arr[i].substr(0, 3));
+  }
+
+});
