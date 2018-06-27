@@ -92,7 +92,6 @@ $.ajax({
   window.onscroll = function() {
 	posLeft = (window.pageXOffset !== undefined) ? window.pageXOffset : (document.documentElement || document.body.parentNode || document.body).scrollLeft;
 	posTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
-	console.log('x=' + posLeft + '\ny=' + posTop);
 
   if (posTop >= 0 && posTop <= 442){
     $('#navigation__dashbord').addClass(' navigation-active');
@@ -131,13 +130,13 @@ $('.settings__saveCancel--save').click(()=>{
   let profileCheckbox = document.getElementById('profile-checkbox').checked;
   let timezoneCheckbox = $('#timezone').find(":selected").text()
 
-  sessionStorage.setItem('emailCheckbox', emailCheckbox);
-  sessionStorage.setItem('profileCheckbox', profileCheckbox);
-  sessionStorage.setItem('timezoneCheckbox', timezoneCheckbox);
+  localStorage.setItem('emailCheckbox', emailCheckbox);
+  localStorage.setItem('profileCheckbox', profileCheckbox);
+  localStorage.setItem('timezoneCheckbox', timezoneCheckbox);
 
 })
 function setCheckbox($elem, id){
-  if (sessionStorage.getItem($elem) == "true"){
+  if (localStorage.getItem($elem) == "true"){
     id.prop('checked', true);
   } else {
     id.prop('checked', false);
@@ -146,12 +145,12 @@ function setCheckbox($elem, id){
 setCheckbox('emailCheckbox', $('#email-checkbox'));
 setCheckbox('profileCheckbox', $('#profile-checkbox'));
 
-if (sessionStorage.getItem('timezoneCheckbox') != null){
-  $('#timezone').find(":selected").text(sessionStorage.getItem('timezoneCheckbox'));
+if (localStorage.getItem('timezoneCheckbox') != null){
+  $('#timezone').find(":selected").text(localStorage.getItem('timezoneCheckbox'));
 }
 
 $('.settings__saveCancel--cancel').click(() => {
-  sessionStorage.clear();
+  localStorage.clear();
 });
 
 //----------------------Pop Up Notification--------------------------//
@@ -163,4 +162,12 @@ $('#popUp').on('click', (el)=> {
   if(el.target.className == "popUp" || el.target.className == "popUp__description--cross"){
     $('#popUp').hide();
   }
+});
+
+//----------------------Message after submission form--------------------------//
+
+$("#messageUser__button" ).submit(function( event ) {
+  alert( "Message was sent");
+  $('#messageUser-search').val('');
+  $('.messageUser__message').val('');
 });
