@@ -1,3 +1,14 @@
+// Hello.
+//
+// This is JSHint, a tool that helps to detect errors and potential
+// problems in your JavaScript code.
+//
+// To start, simply enter some JavaScript anywhere on this page. Your
+// report will appear on the right side.
+//
+// Additionally, you can toggle specific options in the Configure
+// menu.
+
 //-------Function to make first letter upper-case----------//
 
 function captLetr(string) {
@@ -40,11 +51,10 @@ $.ajax({
 
     let result = data.results.map(function(result){
       return captLetr(result.name.first) + " " + captLetr(result.name.last);
-    })
+    });
 
-    let $container = $('<div class="autocompleteList"></div>');
     function autocomplete(input, arr) {
-      let currentFocus;
+
       input.keyup( (el) => {
          let autocompleteItems, autocompleteInner, val = input.val();
          closeAllLists();
@@ -59,11 +69,11 @@ $.ajax({
              autocompleteInner.html("<span class='bold'>" + arr[i].substr(0, val.length) + "</span>");
              autocompleteInner.append(arr[i].substr(val.length));
              autocompleteItems.append(autocompleteInner);
-              autocompleteItems.on('click', (e) => {
-                input.val(e.target.innerText);
-              });
            }
          }
+      		autocompleteItems.on('click', (e) => {
+                input.val(e.target.innerText);
+              });
       });
       function closeAllLists(el) {
           let x = $(".autocomplete-items");
@@ -116,7 +126,7 @@ $.ajax({
     } else {
     $('#navigation__settings').removeClass(' navigation-active');
   }
-}
+};
 
 $(".headTraffic__nav > .headTraffic__nav--items").click(function(){
   $(".active-nav-items").removeClass("active-nav-items");
@@ -128,24 +138,24 @@ $(".headTraffic__nav > .headTraffic__nav--items").click(function(){
 $('.settings__saveCancel--save').click(()=>{
   let emailCheckbox = document.getElementById('email-checkbox').checked;
   let profileCheckbox = document.getElementById('profile-checkbox').checked;
-  let timezoneCheckbox = $('#timezone').find(":selected").text()
+  let timezoneCheckbox = $('#timezone').find(":selected").text();
 
   localStorage.setItem('emailCheckbox', emailCheckbox);
   localStorage.setItem('profileCheckbox', profileCheckbox);
   localStorage.setItem('timezoneCheckbox', timezoneCheckbox);
 
-})
+});
 function setCheckbox($elem, id){
   if (localStorage.getItem($elem) == "true"){
     id.prop('checked', true);
   } else {
     id.prop('checked', false);
   }
-};
+}
 setCheckbox('emailCheckbox', $('#email-checkbox'));
 setCheckbox('profileCheckbox', $('#profile-checkbox'));
 
-if (localStorage.getItem('timezoneCheckbox') != null){
+if (localStorage.getItem('timezoneCheckbox') !== null){
   $('#timezone').find(":selected").text(localStorage.getItem('timezoneCheckbox'));
 }
 
@@ -157,14 +167,14 @@ $('.settings__saveCancel--cancel').click(() => {
 
 $('#head__user--bell').click( () => {
   $('#popUp').css('display', 'flex');
-})
+});
 $('#popUp').on('click', (el)=> {
   if(el.target.className == "popUp" || el.target.className == "popUp__description--cross"){
     $('#popUp').hide();
   }
 });
 
-//----------------------Message after submission form--------------------------//
+//----------------------Message after submission form------------------------//
 
 $("#messageUser__button" ).submit(function( event ) {
   alert( "Message was sent");
